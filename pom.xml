@@ -13,6 +13,10 @@
     </modules>
     <packaging>pom</packaging>
 
+    <properties>
+        <version.roaster>2.22.2.Final</version.roaster>
+    </properties>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -30,13 +34,7 @@
                 <artifactId>maven-core</artifactId>
                 <version>3.6.0</version>
             </dependency>
-            <dependency>
-                <groupId>com.sun</groupId>
-                <artifactId>tools</artifactId>
-                <version>1.8</version>
-                <scope>system</scope>
-                <systemPath>${java.home}/../lib/tools.jar</systemPath>
-            </dependency>
+
             <!--spring需要的依赖-->
             <dependency>
                 <groupId>javax.servlet</groupId>
@@ -103,10 +101,21 @@
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>2.9.2</version>
             </dependency>
+
             <dependency>
                 <groupId>net.bytebuddy</groupId>
                 <artifactId>byte-buddy</artifactId>
                 <version>1.10.21</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.forge.roaster</groupId>
+                <artifactId>roaster-api</artifactId>
+                <version>${version.roaster}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.forge.roaster</groupId>
+                <artifactId>roaster-jdt</artifactId>
+                <version>${version.roaster}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

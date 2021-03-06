@@ -58,7 +58,7 @@ public class SimpleMojo extends AbstractMojo {
                     ByteBuddy byteBuddy = new ByteBuddy();
                     DynamicType.Builder<?> builder = byteBuddy.redefine(klass);
                     boolean classPresent = klass.isAnnotationPresent(Deprecated.class);
-                    log.info(klass.getName() + " isAnnotationPresent? " + classPresent);
+                    log.info("class " + klass.getName() + " isAnnotationPresent? " + classPresent);
                     if (!classPresent) {
                         builder = builder.annotateType(AnnotationDescription.Builder.ofType(Deprecated.class).build());
                     }

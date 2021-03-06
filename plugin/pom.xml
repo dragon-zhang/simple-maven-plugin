@@ -28,11 +28,16 @@
             <scope>provided</scope>
         </dependency>
 
-        <!--todo 考虑不用java原生的注释解释器，警告太多-->
         <dependency>
-            <groupId>com.sun</groupId>
-            <artifactId>tools</artifactId>
+            <groupId>org.jboss.forge.roaster</groupId>
+            <artifactId>roaster-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.jboss.forge.roaster</groupId>
+            <artifactId>roaster-jdt</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
