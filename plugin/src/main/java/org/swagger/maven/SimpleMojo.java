@@ -58,14 +58,12 @@ public class SimpleMojo extends AbstractMojo {
                     ByteBuddy byteBuddy = new ByteBuddy();
                     DynamicType.Builder<?> builder = byteBuddy.redefine(klass);
                     boolean classPresent = klass.isAnnotationPresent(Deprecated.class);
-                    log.info("class " + klass.getName() + " isAnnotationPresent? " + classPresent);
                     if (!classPresent) {
                         builder = builder.annotateType(AnnotationDescription.Builder.ofType(Deprecated.class).build());
                     }
                     for (Field field : klass.getDeclaredFields()) {
                         field.setAccessible(true);
                         boolean fieldPresent = field.isAnnotationPresent(Deprecated.class);
-                        log.info("field " + field.getName() + " isAnnotationPresent? " + fieldPresent);
                         if (!fieldPresent) {
                             builder = builder.field(ElementMatchers.named(field.getName()))
                                     .annotateField(AnnotationDescription.Builder
@@ -75,7 +73,6 @@ public class SimpleMojo extends AbstractMojo {
                     for (Method method : klass.getDeclaredMethods()) {
                         method.setAccessible(true);
                         boolean methodPresent = method.isAnnotationPresent(Deprecated.class);
-                        log.info("method " + method.getName() + " isAnnotationPresent? " + methodPresent);
                         if (!methodPresent) {
                             //只加注解，不改变原有的方法体，找了好久...
                             builder = builder.visit(new MemberAttributeExtension.ForMethod()

@@ -108,6 +108,13 @@
             <plugin>
                 <groupId>org.swagger.maven</groupId>
                 <artifactId>simple-maven-plugin</artifactId>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.swagger.maven</groupId>
+                        <artifactId>examples</artifactId>
+                        <version>1.0.0-SNAPSHOT</version>
+                    </dependency>
+                </dependencies>
                 <executions>
                     <execution>
                         <phase>compile</phase>
